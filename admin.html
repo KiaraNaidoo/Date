@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* Light teal background */
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #008080; /* Teal color */
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        label {
+            color: #008080;
+            font-size: 18px;
+            text-align: left;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"], textarea {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #008080;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #008080;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background-color: #005f5f;
+            transform: scale(1.1);
+        }
+        button:focus {
+            outline: none;
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Page</h1>
+        <form action="yes.html" method="GET">
+            <div class="form-section">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter location" required>
+            </div>
+
+            <div class="form-section">
+                <label for="time">Time:</label>
+                <input type="text" id="time" name="time" placeholder="Enter time" required>
+            </div>
+
+            <div class="form-section">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" placeholder="Enter your comment" required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

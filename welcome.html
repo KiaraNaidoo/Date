@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 12px;
+            background-color: #008080; /* Teal background */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            margin: 10px;
+            background-color: #ffffff;
+            color: #008080; /* White button with teal text */
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        button:hover {
+            background-color: #005f5f; /* Darker teal */
+            transform: scale(1.1);
+        }
+        .comment-box {
+            display: none;
+            margin-top: 20px;
+        }
+        textarea {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .comment-box button {
+            background-color: #ffd700;
+            color: #008080;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .comment-box button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+    <script>
+        function handleNoClick() {
+            document.getElementById('comment-box').style.display = 'block';
+        }
+
+        function submitComment() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+
+            // Swap the alerts for "Rithik" and everyone else
+            if (name && name.toLowerCase() === 'rithik') {
+                // Show alerts meant for others when the name is "Rithik"
+                alert("That's no excuse!");
+                setTimeout(() => {
+                    alert("I always knew you didn't love me.");
+                    setTimeout(() => {
+                        alert("Request an appeal?");
+                        setTimeout(() => {
+                            alert("Tsek, shame too bad.");
+                            setTimeout(() => {
+                                alert("Shut your mouth and try again!");
+                                location.reload(); // Refresh the page
+                            }, 500);
+                        }, 500);
+                    }, 500);
+                }, 100);
+            } else {
+                // Show "Rithik's" alert when the name is not "Rithik"
+                alert("Shame, that's not my problem, I'm taken.");
+                setTimeout(() => {
+                    window.location.href = 'index.html'; // Redirect after the alert
+                }, 1000); // Delay the redirect for 1 second
+            }
+        }
+
+        function redirectBasedOnName() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+
+            // Check for 'Rithik' or 'rithik' (case-insensitive)
+            if (name && name.toLowerCase() === 'rithik') {
+                document.getElementById('greeting').textContent = `Welcome Big ass forehead ${name}`;
+            } else if (name === 'KCN') {
+                window.location.href = 'admin.html'; // Redirect to admin.html for KCN
+            } else {
+                document.getElementById('greeting').textContent = 'You are not my bf, get out from here!';
+                // Hide unnecessary elements for non-Rithik or non-KCN names
+                document.querySelector('p').style.display = 'none';
+                document.querySelector('button').style.display = 'none';
+            }
+        }
+
+        window.onload = redirectBasedOnName;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greeting">Hello!</h1>
+        <p>Would you like to go on a date with me?</p>
+        <button onclick="window.location.href='yes.html'">Yes</button>
+        <button onclick="handleNoClick()">No</button>
+        <div id="comment-box" class="comment-box">
+            <p>Why not?</p>
+            <textarea id="comment" placeholder="Your comment..."></textarea>
+            <br>
+            <button onclick="submitComment()">Submit</button>
+        </div>
+    </div>
+</body>
+</html>
